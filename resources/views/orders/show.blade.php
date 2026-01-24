@@ -1,9 +1,9 @@
-<x-layouts.admin title="Detail Pemesanan">
+<x-layouts.app>
   <section class="max-w-4xl mx-auto py-12 px-6">
     <div class="flex items-center justify-between mb-6">
       <h1 class="text-2xl font-bold">Detail Pemesanan</h1>
       <div class="text-sm text-gray-500">Order #{{ $order->id }} •
-        {{ $order->order_date->format('d M Y H:i') }}
+        {{ $order->order_date->translatedFormat('d F Y, H:i') }}
       </div>
     </div>
 
@@ -40,12 +40,11 @@
             <span class="font-bold text-lg">Rp {{ number_format($order->total_harga, 0, ',', '.') }}</span>
 
           </div>
-          <div class="sm:ml-auto sm:mt-auto sm:mr-0 mx-auto mt-3 flex gap-2">
-            <a href="{{ route('admin.histories.index') }}" class="btn btn-primary">Kembali ke Riwayat</a>
-          </div>
         </div>
-      </div>x
-
+      </div>
+    </div>
+    <div class="mt-6">
+      <a href="{{ route('orders.index') }}" class="btn btn-primary text-white">Kembali ke Riwayat Pembelian</a>
     </div>
   </section>
-</x-layouts.admin>
+</x-layouts.app>

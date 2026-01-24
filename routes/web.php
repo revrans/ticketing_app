@@ -7,6 +7,12 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TiketController;
 use App\Http\Controllers\Admin\HistoriesController;
+use App\Http\Controllers\User\HomeController;
+use App\Http\Controllers\Admin\EventController as AdminEventController;
+use App\Http\Controllers\User\EventController as UserEventController;
+use App\Http\Controllers\User\OrderController;
+
+
 
 
 /*
@@ -20,9 +26,15 @@ use App\Http\Controllers\Admin\HistoriesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Home
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Events
+Route::get('/events/{event}', [UserEventController::class, 'show'])->name('events.show');
+
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
