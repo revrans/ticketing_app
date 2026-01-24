@@ -133,7 +133,7 @@
   </section>
 
   <script>
-    (function () {
+  (function () {
       // Helper to format Indonesian currency
       const formatRupiah = (value) => {
         return 'Rp ' + Number(value).toLocaleString('id-ID');
@@ -254,10 +254,6 @@
       }
     }
 
-    // init
-    updateSummary();
-    }) ();
-
 document.getElementById('confirmCheckout').addEventListener('click', async () => {
       const btn = document.getElementById('confirmCheckout');
       btn.setAttribute('disabled', 'disabled');
@@ -303,6 +299,10 @@ document.getElementById('confirmCheckout').addEventListener('click', async () =>
         btn.textContent = 'Konfirmasi (placeholder)';
       }
     });
+
+        // init
+    updateSummary();
+    }) ();
     
  </script>
 
