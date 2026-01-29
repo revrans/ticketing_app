@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\HistoriesController;
 use App\Http\Controllers\User\HomeController;
 use App\Http\Controllers\Admin\EventController as AdminEventController;
 use App\Http\Controllers\User\EventController as UserEventController;
+use App\Http\Controllers\Admin\LokasiController;
 use App\Http\Controllers\User\OrderController;
 
 
@@ -54,6 +55,7 @@ Route::middleware('auth')->group(function () {
             
                 // Category Management
 
+        Route::resource('lokasi', LokasiController::class);
         Route::resource('categories', CategoryController::class);
 
         Route::resource('events', EventController::class);
